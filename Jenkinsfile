@@ -31,7 +31,7 @@ pipeline {
         }
            stage('Publishing Unit Tests Results') {
             steps {
-                sh '/home/jenkins/apache-jmeter-5.4.1/jenkins.io.report.jtl'
+                sh 'cat /home/jenkins/apache-jmeter-5.4.1/jenkins.io.report.jtl'
             }
         }
     }
