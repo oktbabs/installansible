@@ -8,10 +8,14 @@ pipeline {
         }
         stage('Setup and Synchronise time') {
             steps {
-                sh 'sudo systemctl stop ntp'
-                sh 'sudo ntpdate -qu 0.debian.pool.ntp.org'
-                sh 'sudo systemctl restart ntp'
-                sh 'sudo systemctl status ntp'
+                  sh 'yum install ntp ntpdate -y'
+                  sh 'systemctl start ntpd'
+                  sh 'systemctl enable ntpd'
+                  sh 'systemctl status ntpd'
+                  sh 'ntpdate -u -s 0.centos.pool.ntp.org 1.centos.pool.ntp.org 2.centos.pool.ntp.org'
+                  sh 'systemctl restart ntpd'
+                  sh 'timedatectl'
+                  sh 'hwclock -w'
             }
         }
         stage('Install ansible trial') {
