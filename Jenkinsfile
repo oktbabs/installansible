@@ -37,7 +37,7 @@ pipeline {
           stage('Email my information  to me') {
             steps {
                emailext body: '''Dear Buddy, Your pipeline executed with no issues''', 
-               subject: 'Your pipeline has been completed', 
+               subject: 'Your pipeline has been completed successfully', 
                to: 'oktbabs@gmail.com'
             }
         }
