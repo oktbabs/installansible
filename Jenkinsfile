@@ -34,5 +34,12 @@ pipeline {
                 sh 'cat /home/jenkins/apache-jmeter-5.4.1/jenkins.io.report.jtl'
             }
         }
+          stage('Email my information') {
+            steps {
+               emailext body: '''Dear Buddy, Your pipeline executed with no issues''', 
+               subject: 'Your pipeline has been completed', 
+               to: 'oktbabs@gmail.com'
+            }
+        }
     }
 }
