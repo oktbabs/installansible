@@ -8,14 +8,14 @@ pipeline {
         }
         stage('Setup and Synchronise time') {
             steps {
-                  sh 'yum install ntp ntpdate -y'
-                  sh 'systemctl start ntpd'
-                  sh 'systemctl enable ntpd'
-                  sh 'systemctl status ntpd'
-                  sh 'ntpdate -u -s 0.centos.pool.ntp.org 1.centos.pool.ntp.org 2.centos.pool.ntp.org'
-                  sh 'systemctl restart ntpd'
-                  sh 'timedatectl'
-                  sh 'hwclock -w'
+                  sh 'sudo yum install ntp ntpdate -y'
+                  sh 'sudo systemctl start ntpd'
+                  sh 'sudo systemctl enable ntpd'
+                  sh 'sudo systemctl status ntpd'
+                  sh 'sudo ntpdate -u -s 0.centos.pool.ntp.org 1.centos.pool.ntp.org 2.centos.pool.ntp.org'
+                  sh 'sudo systemctl restart ntpd'
+                  sh 'sudo timedatectl'
+                  sh 'sudo hwclock -w'
             }
         }
         stage('Install ansible trial') {
