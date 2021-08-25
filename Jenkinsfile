@@ -9,7 +9,7 @@ pipeline {
         stage('Install ansible trial') {
             steps {
                 sh 'sudo yum -y update'
-                sh 'sudo yum -y install ansble'
+                sh 'sudo yum -y install ansible'
             }
         }
     }
