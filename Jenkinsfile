@@ -25,5 +25,10 @@ pipeline {
                 sh '/home/jenkins/apache-jmeter-5.4.1/bin/jmeter -j jmeter.save.saveservice.output_format=xml -n -t /home/jenkins/apache-jmeter-5.4.1/bin/Jenkins_Test_Plan.jmx -l /home/jenkins/apache-jmeter-5.4.1/jenkins.io.report.jtl'
             }
         }
+           stage('Carrying out Unit Tests') {
+            steps {
+                sh '/home/jenkins/apache-jmeter-5.4.1/jenkins.io.report.jtl'
+            }
+        }
     }
 }
